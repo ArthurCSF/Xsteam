@@ -9,3 +9,4 @@
  Contact e-mail: arthur.colombo@outlook.com  
 
 Conversão para uso pessoal
+Codigo original https://github.com/KurtJacobson/XSteam
