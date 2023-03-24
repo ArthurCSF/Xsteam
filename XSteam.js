@@ -76,7 +76,7 @@ function Tsat_p(p) {
   if (p >= 0.000611657 && p <= 22.06395 + 0.001) {
     return fromSIunit_T(T4_p(p));
   } else {
-    return Error("Valor invalido");
+    return Error("Invalid value");
   }
 }
 
@@ -86,7 +86,7 @@ function Tsat_s(s) {
   if (s > -0.0001545495919 && s < 9.155759395) {
     return fromSIunit_T(T4_s(p4_s(s)));
   } else {
-    return Error("Valor invalido");
+    return Error("Invalid value");
   }
 }
 
@@ -106,7 +106,7 @@ function T_ph(p, h) {
     case 5:
       return fromSIunit_T(T5_ph(p, h));
     default:
-      return Error("Valor invalido");
+      return Error("Invalid value");
   }
 }
 
@@ -126,7 +126,7 @@ function T_ps(p, s) {
     case 5:
       return fromSIunit_T(T5_ps(p, s));
     default:
-      return Error("Valor invalido");
+      return Error("Invalid value");
   }
 }
 
@@ -144,9 +144,9 @@ function T_hs(h, s) {
     case 4:
       return fromSIunit_T(T4_p(p4_hs(h, s)));
     case 5:
-      return Error("Valor invalido"); // Functions of hs is not implemented in region 5
+      return Error("Invalid value"); // Functions of hs is not implemented in region 5
     default:
-      return Error("Valor invalido");
+      return Error("Invalid value");
   }
 }
 //***********************************************************************************************************
@@ -160,7 +160,7 @@ function psat_T(T) {
   if (T <= 647.096 && T > 273.15) {
     return fromSIunit_p(p4_T(T));
   } else {
-    return Error("Valor invalido");
+    return Error("Invalid value");
   }
 }
 
@@ -170,7 +170,7 @@ function psat_s(s) {
   if (s > -0.0001545495919 && s < 9.155759395) {
     return fromSIunit_p(p4_s(s));
   } else {
-    return Error("Valor invalido");
+    return Error("Invalid value");
   }
 }
 
@@ -188,9 +188,9 @@ function p_hs(h, s) {
     case 4:
       return fromSIunit_p(p4_T(T4_hs(h, s)));
     case 5:
-      return Error("Valor invalido"); // Functions of hs is not implemented in region 5
+      return Error("Invalid value"); // Functions of hs is not implemented in region 5
     default:
-      return Error("Valor invalido");
+      return Error("Invalid value");
   }
 }
 
@@ -225,7 +225,7 @@ function hV_p(p) {
   if (p > 0.000611657 && p < 22.06395) {
     return fromSIunit_h(h4V_p(p));
   } else {
-    return Error("Valor invalido");
+    return Error("Invalid value");
   }
 }
 
@@ -235,7 +235,7 @@ function hL_p(p) {
   if (p > 0.000611657 && p < 22.06395) {
     return fromSIunit_h(h4L_p(p));
   } else {
-    return Error("Valor invalido");
+    return Error("Invalid value");
   }
 }
 
@@ -245,7 +245,7 @@ function hV_T(T) {
   if (T > 273.15 && T < 647.096) {
     return fromSIunit_h(h4V_p(p4_T(T)));
   } else {
-    return Error("Valor invalido");
+    return Error("Invalid value");
   }
 }
 
@@ -255,7 +255,7 @@ function hL_T(T) {
   if (T > 273.15 && T < 647.096) {
     return fromSIunit_h(h4L_p(p4_T(T)));
   } else {
-    return Error("Valor invalido");
+    return Error("Invalid value");
   }
 }
 
@@ -271,11 +271,11 @@ function h_pT(p, T) {
     case 3:
       return fromSIunit_h(h3_pT(p, T));
     case 4:
-      return Error("Valor invalido");
+      return Error("Invalid value");
     case 5:
       return fromSIunit_h(h5_pT(p, T));
     default:
-      return Error("Valor invalido");
+      return Error("Invalid value");
   }
 }
 
@@ -296,7 +296,7 @@ function h_ps(p, s) {
     case 5:
       return fromSIunit_h(h5_pT(p, T5_ps(p, s)));
     default:
-      return Error("Valor invalido");
+      return Error("Invalid value");
   }
 }
 
@@ -305,7 +305,7 @@ function h_px(p, x) {
   x = toSIunit_x(x);
 
   if ((x > 1) | (x < 0) | (p >= 22.064)) {
-    return Error("Valor invalido");
+    return Error("Invalid value");
   }
   const hL = h4L_p(p);
   const hV = h4V_p(p);
@@ -317,7 +317,7 @@ function h_Tx(T, x) {
   x = toSIunit_x(x);
 
   if ((x > 1) | (x < 0) | (T >= 647.096)) {
-    return Error("Valor invalido");
+    return Error("Invalid value");
   }
 
   const p = p4_T(T);
@@ -354,7 +354,7 @@ function h_prho(p, rho) {
     case 5:
       return fromSIunit_h(h5_pT(p, T5_prho(p, rho)));
     default:
-      return Error("Valor invalido");
+      return Error("Invalid value");
   }
 }
 
@@ -373,7 +373,7 @@ function vV_p(p) {
       return fromSIunit_v(v3_ph(p, h4V_p(p)));
     }
   } else {
-    return Error("Valor invalido");
+    return Error("Invalid value");
   }
 }
 
@@ -387,7 +387,7 @@ function vL_p(p) {
       return fromSIunit_v(v3_ph(p, h4L_p(p)));
     }
   } else {
-    return Error("Valor invalido");
+    return Error("Invalid value");
   }
 }
 
@@ -401,7 +401,7 @@ function vV_T(T) {
       return fromSIunit_v(v3_ph(p4_T(T), h4V_p(p4_T(T))));
     }
   } else {
-    return Error("Valor invalido");
+    return Error("Invalid value");
   }
 }
 
@@ -415,7 +415,7 @@ function vL_T(T) {
       return fromSIunit_v(v3_ph(p4_T(T), h4L_p(p4_T(T))));
     }
   } else {
-    return Error("Valor invalido");
+    return Error("Invalid value");
   }
 }
 
@@ -423,79 +423,80 @@ function v_pT(p, T) {
   p = toSIunit_p(p);
   T = toSIunit_T(T);
 
-  switch(region_pT(p, T)){
+  switch (region_pT(p, T)) {
     case 1:
-      return fromSIunit_v(v1_pT(p, T))
+      return fromSIunit_v(v1_pT(p, T));
     case 2:
-      return fromSIunit_v(v2_pT(p, T))
+      return fromSIunit_v(v2_pT(p, T));
     case 3:
-      return fromSIunit_v(v3_ph(p, h3_pT(p, T)))
+      return fromSIunit_v(v3_ph(p, h3_pT(p, T)));
     case 4:
-      return Error('Valor invalido')
-    case 5: fromSIunit_v(v5_pT(p, T))
-      return
+      return Error("Invalid value");
+    case 5:
+      fromSIunit_v(v5_pT(p, T));
+      return;
     default:
-      return Error('Valor invalido')
+      return Error("Invalid value");
   }
 }
 
-function v_ph(p, h){
-  p = toSIunit_p(p)
-  h = toSIunit_h(h)
+function v_ph(p, h) {
+  p = toSIunit_p(p);
+  h = toSIunit_h(h);
 
-  switch(region_ph(p, h)){
+  switch (region_ph(p, h)) {
     case 1:
-      return fromSIunit_v(v1_pT(p, T1_ph(p, h)))
+      return fromSIunit_v(v1_pT(p, T1_ph(p, h)));
     case 2:
-      return fromSIunit_v(v2_pT(p, T2_ph(p, h)))
+      return fromSIunit_v(v2_pT(p, T2_ph(p, h)));
     case 3:
-      return fromSIunit_v(v3_ph(p, h))
+      return fromSIunit_v(v3_ph(p, h));
     case 4:
-      const xs = x4_ph(p, h)
-      let v4V
-      let v4L
-      if(p < 16.529){
-         v4V = v2_pT(p, T4_p(p))
-         v4L = v1_pT(p, T4_p(p))
-      }else{
-        v4V = v3_ph(p, h4V_p(p))
-        v4L = v3_ph(p, h4L_p(p))
+      const xs = x4_ph(p, h);
+      let v4V;
+      let v4L;
+      if (p < 16.529) {
+        v4V = v2_pT(p, T4_p(p));
+        v4L = v1_pT(p, T4_p(p));
+      } else {
+        v4V = v3_ph(p, h4V_p(p));
+        v4L = v3_ph(p, h4L_p(p));
       }
-      return fromSIunit_v((xs * v4V + (1 - xs) * v4L))
+      return fromSIunit_v(xs * v4V + (1 - xs) * v4L);
     case 5:
-      return fromSIunit_v(v5_pT(p, T5_ph(p, h)))
+      return fromSIunit_v(v5_pT(p, T5_ph(p, h)));
     default:
-      return Error('Valor invalido')
+      return Error("Invalid value");
   }
 }
 
-function v_ps(p, s){
-  p = toSIunit_p(p)
-  s = toSIunit_s(s)
+function v_ps(p, s) {
+  p = toSIunit_p(p);
+  s = toSIunit_s(s);
 
-  switch(region_ps(p, s)){
+  switch (region_ps(p, s)) {
     case 1:
-      return fromSIunit_v(v1_pT(p, T1_ps(p, s)))
+      return fromSIunit_v(v1_pT(p, T1_ps(p, s)));
     case 2:
-      return fromSIunit_v(v2_pT(p, T2_ps(p, s)))
+      return fromSIunit_v(v2_pT(p, T2_ps(p, s)));
     case 3:
-      return fromSIunit_v(v3_ps(p, s))
+      return fromSIunit_v(v3_ps(p, s));
     case 4:
-      const xs = x4_ps(p, s)
-      let v4V
-      let v4L
-      if(p < 16.529){
-        v4V = v2_pT(p, T4_p(p))
-        v4L = v1_pT(p, T4_p(p))
-      }else{
-        v4V = v3_ph(p, h4V_p(p))
-        v4L = v3_ph(p, h4L_p(p))
+      const xs = x4_ps(p, s);
+      let v4V;
+      let v4L;
+      if (p < 16.529) {
+        v4V = v2_pT(p, T4_p(p));
+        v4L = v1_pT(p, T4_p(p));
+      } else {
+        v4V = v3_ph(p, h4V_p(p));
+        v4L = v3_ph(p, h4L_p(p));
       }
-      return fromSIunit_v((xs * v4V + (1 - xs) * v4L))
+      return fromSIunit_v(xs * v4V + (1 - xs) * v4L);
     case 5:
-      return fromSIunit_v(v5_pT(p, T5_ps(p, s)))
+      return fromSIunit_v(v5_pT(p, T5_ps(p, s)));
     default:
-      return Error('Valor invalido')
+      return Error("Invalid value");
   }
 }
 
@@ -505,17 +506,155 @@ function v_ps(p, s){
 //** 1.6 Density (rho)
 //  Density is calculated as 1/v
 
+function rhoV_p(p) {
+  return 1 / vV_p(p);
+}
 
+function rhoL_p(p) {
+  return 1 / vL_p(p);
+}
+
+function rhoL_T(T) {
+  return 1 / vL_T(T);
+}
+
+function rhoV_T(T) {
+  return 1 / vV_T(T);
+}
+
+function rho_pT(p, T) {
+  return 1 / v_pT(p, T);
+}
+
+function rho_ph(p, h) {
+  return 1 / v_ph(p, h);
+}
+
+function rho_ps(p, s) {
+  return 1 / v_ps(p, s);
+}
 
 //***********************************************************************************************************
 
 //***********************************************************************************************************
 //** 1.7 Specific entropy (s)
 
+function sV_p(p) {
+  p = toSIunit_p(p);
+
+  if (p > 0.00611657 && p < 22.06395) {
+    if (p < 16.529) {
+      return fromSIunit_s(s2_pT(p, T4_p(p)));
+    } else {
+      return fromSIunit_s(s3_rhoT(1 / v3_ph(p, h4V_p(p)), T4_p(p)));
+    }
+  } else {
+    return Error("Invalid value");
+  }
+}
+
+function sL_p(p) {
+  p = toSIunit_p(p);
+
+  if (p > 0.00611657 && p < 22.06395) {
+    if (p < 16.529) {
+      return fromSIunit_s(s1_pT(p, T4_p(p)));
+    } else {
+      return fromSIunit_s(s3_rhoT(1 / v3_ph(p, h4L_p(p)), T4_p(p)));
+    }
+  } else {
+    return Error("Invalid value");
+  }
+}
+
+function sV_T(T) {
+  T = toSIunit_T(T);
+
+  if (T > 273.15 && T < 647.096) {
+    if (T <= 623.15) {
+      return fromSIunit_s(s2_pT(p4_T(T), T));
+    } else {
+      fromSIunit_s(s3_rhoT(1 / v3_ph(p4_T(T), h4V_p(p4_T(T))), T));
+    }
+  } else {
+    return Error("Invalid value");
+  }
+}
+
+function sL_T(T) {
+  T = toSIunit_T(T);
+
+  if (T > 273.15 && T < 647.096) {
+    if (T <= 623.15) {
+      return fromSIunit_s(s1_pT(p4_T(T), T));
+    } else {
+      fromSIunit_s(s3_rhoT(1 / v3_ph(p4_T(T), h4L_p(p4_T(T))), T));
+    }
+  } else {
+    return Error("Invalid value");
+  }
+}
+
+function s_pT(p, T) {
+  p = toSIunit_p(p);
+  T = toSIunit_T(T);
+
+  switch (region_pT(p, T)) {
+    case 1:
+      return fromSIunit_s(s1_pT(p, T));
+    case 2:
+      return fromSIunit_s(s2_pT(p, T));
+    case 3:
+      return fromSIunit_s(s3_rhoT(1 / v3_ph(p, h3_pT(p, T)), T));
+    case 4:
+      return Error("Invalid value");
+    case 5:
+      return fromSIunit_s(s5_pT(p, T));
+    default:
+      return Error("Invalid value");
+  }
+}
+
+function s_ph(p, h) {
+  p = toSIunit_p(p);
+  h = toSIunit_h(h);
+
+  switch (region_ph(p, h)) {
+    case 1:
+      return fromSIunit_s(s1_pT(p, T1_ph(p, h)));
+    case 2:
+      return fromSIunit_s(s2_pT(p, T2_ph(p, h)));
+    case 3:
+      return fromSIunit_s(s3_rhoT(1 / v3_ph(p, h), T3_ph(p, h)));
+    case 4:
+      const Ts = T4_p(p);
+      const xs = x4_ph(p, h);
+      let v4V;
+      let s4V;
+      let v4L;
+      let s4L;
+      if(p < 16.529){
+        s4V = s2_pT(p, Ts);
+        s4L = s1_pT(p, Ts);
+      }else{
+        v4V = v3_ph(p, h4V_p(p));
+        s4V = s3_rhoT(1 / v4V, Ts);
+        v4L = v3_ph(p, h4L_p(p));
+        s4L = s3_rhoT(1 / v4L, Ts);
+      }
+      return fromSIunit_s((xs * s4V + (1 - xs) * s4L))
+    case 5:
+      return fromSIunit_s(s5_pT(p, T5_ph(p, h)));
+    default:
+      return Error("Invalid value");
+  }
+}
 //***********************************************************************************************************
 
 //***********************************************************************************************************
 //** 1.8 Specific internal energy (u)
+
+
 
 //***********************************************************************************************************
 
