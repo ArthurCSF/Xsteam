@@ -661,6 +661,49 @@ function s_ph(p, h) {
 //***********************************************************************************************************
 //** 1.9 Specific isobaric heat capacity (Cp)
 
+function CpV_p(p){
+  p= toSIunit_p(p);
+  if(p > 0.000611657 && p < 22.06395){
+    if(p < 16.529){
+      return fromSIunit_Cp(Cp2_pT(p, T4_p(p)));
+    } else {
+      return fromSIunit_Cp(Cp3_rhoT(1 / (v3_ph(p, h4V_p(p))),T4_p(p)));
+    } 
+  } else {
+    return Error("Invalid Value");
+  }
+}
+
+function CpL_p(p){
+  p = toSIunit_p(p);
+  if(p > 0.000611657 && p < 22.06395){
+    if(p < 16.529){
+      return fromSIunit_Cp(Cp1_pT(p, T4_p(p)));
+    } else {
+      const T = T4_p(p);
+      const h = h4L_p(p);
+      const v = v3_ph(p, h4L_p(p));
+      return fromSIunit_Cp(Cp3_rhoT(1 / (v3_ph(p, h4L_p(p))), T4_p(p)));
+    }
+  } else {
+    return Error("Invalid Value");
+  }
+}
+
+function CpV_T(T){
+T = toSIunit_T(T);
+if(T > 273.15 && T < 647.096){
+  if(T <= 623.15){
+    return fromSIunit_Cp(Cp2_pT(p4_T(T), T));
+} else {
+  return fromSIunit_Cp(Cp3_rhoT(1 / (v3_ph(p4_T(T), h4V_p(p4_T(T)))), T));
+}
+} else {
+  return Error("Invalid Value");
+}
+}
+
+
 //***********************************************************************************************************
 
 //***********************************************************************************************************
